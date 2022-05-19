@@ -25,6 +25,7 @@ function add(todo){
   const li = document.createElement("li")
   const deleteButton = document.createElement('button');
   const statusButton = document.createElement('button');
+  const editButton = document.createElement('button');
 
   li.innerText= todoText;
   li.classList.add("list-group-item")
@@ -46,6 +47,19 @@ function add(todo){
         statusButton.innerText = '未完了';
       }
   });
+//編集ボタンの追加
+    editButton.innerText = '編集';
+    li.appendChild(editButton);
+//編集機能の追加
+    editButton.addEventListener('click',()=>{
+      console.log(li.innerHTML)
+      
+      input.value = li.innerHTML
+    
+      li.remove()
+    })
+
+  
   
   li.addEventListener("contextmenu",function(event){
    event.preventDefault();
