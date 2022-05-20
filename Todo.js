@@ -23,12 +23,15 @@ function add(todo){
 
   if(todoText.length>0){
   const li = document.createElement("li")
+  const span = document.createElement('span');
   const deleteButton = document.createElement('button');
   const statusButton = document.createElement('button');
   const editButton = document.createElement('button');
 
-  li.innerText= todoText;
+
   li.classList.add("list-group-item")
+  span.textContent = todoText;
+  li.appendChild(span);
 
     deleteButton.innerText='削除';
     li.appendChild(deleteButton);
@@ -52,9 +55,9 @@ function add(todo){
     li.appendChild(editButton);
 //編集機能の追加
     editButton.addEventListener('click',()=>{
-      console.log(li.innerHTML)
+      console.log(span)
       
-      input.value = li.innerHTML
+      input.value = span.innerHTML
     
       li.remove()
     })
